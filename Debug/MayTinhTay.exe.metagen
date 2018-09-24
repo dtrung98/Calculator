@@ -1,0 +1,252 @@
+  MayTinhTay.UIWindow.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly MayTinhTay, Version=1.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class MayTinhTay.Key: AutoLayout, AnsiClass, Class, Public, Abstract, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Drawing.Point Location : Public
+    System.Drawing.Size Size : Public
+    System.String Tag : Public
+    System.Drawing.Brush BackBrush : Public
+    System.Drawing.Brush TextBrush : Public
+    System.Drawing.Brush MoveBrush : Public
+    System.Drawing.Brush DownBrush : Public
+    System.Drawing.StringFormat SF : Public
+    System.Drawing.Font f : Public
+    Boolean Enable : Public
+    Boolean IsMoving : Public
+    Boolean IsDown : Public
+  Methods:
+    Disable(): PrivateScope, Public, HideBySig
+    Enabled(): PrivateScope, Public, HideBySig
+    IsInside(ValueType Point IsBoxed): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Draw(Graphics): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class MayTinhTay.NKey: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :MayTinhTay.Key
+    Void .ctor(System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Font, System.Drawing.StringFormat, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Single pc : Public
+  Methods:
+    Draw(Graphics, Single): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    Draw(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class MayTinhTay.ShiftKey: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :MayTinhTay.NKey
+    Void .ctor(System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Font, System.Drawing.StringFormat, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Drawing.Pen p : Public
+    Boolean IsOn : Public
+  Methods:
+    Draw(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class MayTinhTay.BitsKey: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :MayTinhTay.Key
+    Void .ctor(System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Font, System.Drawing.StringFormat, System.Drawing.Pen, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    Draw(Graphics): PrivateScope, Public, Virtual, HideBySig
+Class MayTinhTay.EqualKey: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :MayTinhTay.NKey
+    Void .ctor(System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Font, System.Drawing.StringFormat, System.String): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Drawing.Drawing2D.GraphicsPath gp : Public
+  Methods:
+    IsInside(ValueType Point IsBoxed): PrivateScope, Public, Virtual, HideBySig
+    Draw(Graphics): PrivateScope, Public, Virtual, HideBySig
+Interface MayTinhTay.TypeListener: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    ActiveThis(Control): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class MayTinhTay.NumberTypeButton: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(MayTinhTay.MODE, MayTinhTay.TypeListener, System.String, System.String, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.StringFormat, System.Drawing.StringFormat, System.Drawing.Font, Boolean): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    MayTinhTay.MODE mode : Public
+    System.String Label : Public
+    System.String Value : Public
+    System.String RepresentValue : Public
+    Boolean isDown : Public
+    Boolean isMoving : Public
+    Boolean isActive : Public
+    System.Drawing.Brush ActiveBrush : Public
+    System.Drawing.Brush DownBrush : Public
+    System.Drawing.Brush MoveBrush : Public
+    System.Drawing.Brush BackBrush : Public
+    System.Drawing.Brush TextBrush : Public
+    System.Drawing.Brush ActiveBackBrush : Public
+    System.Drawing.Font f : Public
+    System.Drawing.StringFormat CSF : Public
+    System.Drawing.StringFormat LSF : Public
+    Boolean initted : Public
+  Methods:
+    init(): PrivateScope, Public, HideBySig
+    OnResize(EventArgs): PrivateScope, Public, Virtual, HideBySig
+    OnPaint(PaintEventArgs): PrivateScope, Public, Virtual, HideBySig
+    removeAtEnd(): PrivateScope, Public, HideBySig
+    Clear(): PrivateScope, Public, HideBySig
+    Set(String): PrivateScope, Public, HideBySig
+    Add(String): PrivateScope, Public, HideBySig
+    ActiveThis(): PrivateScope, Public, HideBySig
+    DisableThis(): PrivateScope, Public, HideBySig
+    Debug(String): PrivateScope, Public, HideBySig
+    OnMouseMove(MouseEventArgs): PrivateScope, Public, Virtual, HideBySig
+    OnMouseLeave(Object, EventArgs): PrivateScope, Public, HideBySig
+    OnMouseDown(MouseEventArgs): PrivateScope, Public, Virtual, HideBySig
+    OnMouseUp(MouseEventArgs): PrivateScope, Public, Virtual, HideBySig
+Interface MayTinhTay.KeysListener: AutoLayout, AnsiClass, Class, Public, ClassSemanticsMask, Abstract, BeforeFieldInit
+  Methods:
+    KeyPressed(String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask, Abstract
+Class MayTinhTay.KeysGrid: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Panel
+    Void .ctor(Single, Single): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Drawing.Color BackKeyColor : Public
+    System.Drawing.Color KeyColor : Public
+    System.Drawing.Color KeyHoverColor : Public
+    System.Drawing.Color KeyMaskColor : Public
+    System.Drawing.Color BackKeyOperatorColor : Public
+    System.Drawing.Color KeyOperatorColor : Public
+    System.Drawing.Color KeyHoverOperatorColor : Public
+    System.Drawing.Color KeyMaskOperatorColor : Public
+    System.Drawing.Color BorderColor : Public
+    MayTinhTay.Key Lsh : Public
+    MayTinhTay.Key Rsh : Public
+    MayTinhTay.Key Or : Public
+    MayTinhTay.Key Xor : Public
+    MayTinhTay.Key Not : Public
+    MayTinhTay.Key And : Public
+    MayTinhTay.Key Shift : Public
+    MayTinhTay.Key Mod : Public
+    MayTinhTay.Key CE : Public
+    MayTinhTay.Key C : Public
+    MayTinhTay.Key BackSpace : Public
+    MayTinhTay.Key Div : Public
+    MayTinhTay.Key KeyA : Public
+    MayTinhTay.Key KeyB : Public
+    MayTinhTay.Key Key7 : Public
+    MayTinhTay.Key Key8 : Public
+    MayTinhTay.Key Key9 : Public
+    MayTinhTay.Key Mult : Public
+    MayTinhTay.Key KeyC : Public
+    MayTinhTay.Key KeyD : Public
+    MayTinhTay.Key Key4 : Public
+    MayTinhTay.Key Key5 : Public
+    MayTinhTay.Key Key6 : Public
+    MayTinhTay.Key Sub : Public
+    MayTinhTay.Key KeyE : Public
+    MayTinhTay.Key KeyF : Public
+    MayTinhTay.Key Key1 : Public
+    MayTinhTay.Key Key2 : Public
+    MayTinhTay.Key Key3 : Public
+    MayTinhTay.Key Add : Public
+    MayTinhTay.Key LBracket : Public
+    MayTinhTay.Key RBracket : Public
+    MayTinhTay.Key Sign : Public
+    MayTinhTay.Key Key0 : Public
+    MayTinhTay.Key Dot : Public
+    MayTinhTay.Key Equals : Public
+    MayTinhTay.Key[,] key : Public
+    System.Drawing.Brush NKeyBackBrush : Public
+    System.Drawing.Brush NKeyTextBrush : Public
+    System.Drawing.Brush ONKeyBackBrush : Public
+    System.Drawing.Brush ONKeyTextBrush : Public
+    System.Drawing.Brush BitsBackBrush : Public
+    System.Drawing.Brush BitsTextBrush : Public
+    System.Drawing.Brush MoveBrush : Public
+    System.Drawing.Brush DownBrush : Public
+    System.Drawing.Pen pen : Public
+    System.Drawing.Font font : Public
+    System.Drawing.Font ofont : Public
+    System.Drawing.Font tfont : Public
+    System.Drawing.StringFormat SF : Public
+    Single min_w : Public
+    Single min_h : Public
+    Single mTiming : Public
+    Single aTiming : Public
+    Single standard_key_size : Public
+    Single standard_key_margin : Public
+    Single square_width : Public
+    Single margin_left : Public
+    Single margin_top : Public
+    Single pc : Public
+    System.Drawing.Brush brush : Public
+    Boolean initted : Public
+  Methods:
+    AddKeyListener(KeysListener): PrivateScope, Public, HideBySig
+    addKeys(): PrivateScope, Public, HideBySig
+    createKeys(): PrivateScope, Public, HideBySig
+    OnResize(EventArgs): PrivateScope, Public, Virtual, HideBySig
+    redraw(): PrivateScope, Public, HideBySig
+    init(): PrivateScope, Public, HideBySig
+    setLocation(): PrivateScope, Public, HideBySig
+    OnPaint(PaintEventArgs): PrivateScope, Public, Virtual, HideBySig
+    OnMouseDown(MouseEventArgs): PrivateScope, Public, Virtual, HideBySig
+    OnMouseUp(MouseEventArgs): PrivateScope, Public, Virtual, HideBySig
+    OnMouseMove(MouseEventArgs): PrivateScope, Public, Virtual, HideBySig
+    OnMouseLeave(Object, EventArgs): PrivateScope, Public, HideBySig
+    SwitchMode(MODE): PrivateScope, Public, HideBySig
+Class MayTinhTay.LinearPanel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Panel
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetOrientation(Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    SetRadioSummary(Single): PrivateScope, Public, HideBySig
+    Add(Control, Single): PrivateScope, Public, HideBySig
+    OnDecorate(): PrivateScope, Public, HideBySig
+    OnResize(EventArgs): PrivateScope, Public, Virtual, HideBySig
+Class MayTinhTay.WordWrapLabel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Control
+    Void .ctor(MayTinhTay.MODE, System.String, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Font, System.Drawing.StringFormat): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    SetValue(String, Boolean(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    OnResize(EventArgs): PrivateScope, Public, Virtual, HideBySig
+    OnPaint(PaintEventArgs): PrivateScope, Public, Virtual, HideBySig
+Class MayTinhTay.SmallWWLabel: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :MayTinhTay.WordWrapLabel
+    Void .ctor(MayTinhTay.MODE, System.String, System.Drawing.Brush, System.Drawing.Brush, System.Drawing.Font, System.Drawing.StringFormat): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    OnPaint(PaintEventArgs): PrivateScope, Public, Virtual, HideBySig
+Class MayTinhTay.UIWindow: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.String, System.String, QInt*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    MayTinhTay.KeysListener
+    MayTinhTay.TypeListener
+  Fields:
+    MayTinhTay.LinearPanel panel : Public
+    System.Windows.Forms.Label lb1 : Public
+    System.Windows.Forms.Label lb2 : Public
+    System.Windows.Forms.Label lb3 : Public
+    MayTinhTay.KeysGrid keysGrid : Public
+    MayTinhTay.NumberTypeButton HexButton : Public
+    MayTinhTay.NumberTypeButton DecButton : Public
+    MayTinhTay.NumberTypeButton BinButton : Public
+    MayTinhTay.WordWrapLabel ResultLabel : Public
+    MayTinhTay.WordWrapLabel SmallLabel : Public
+    System.String Parameters : Public
+    QInt*[] Number : Public
+    Int32 WhichOperator : Public
+    System.String[] Operator : Public
+    Int32 whichNumber : Public
+    MayTinhTay.MODE Mode : Public
+  Methods:
+    UpdateValueType(): PrivateScope, Public, HideBySig
+    EqualPressed(): PrivateScope, Public, HideBySig
+    GetNumber(Int32): PrivateScope, Public, HideBySig
+    OperatorPressed(Int32): PrivateScope, Public, HideBySig
+    BackPressed(): PrivateScope, Public, HideBySig
+    NumberPressed(Char(HasFieldMarshal)): PrivateScope, Public, HideBySig
+    SignPressed(): PrivateScope, Public, HideBySig
+    KeyPressed(String, Int32): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
+    ML(Object, EventArgs): PrivateScope, Public, HideBySig
+    getOperatorCodeID(String): PrivateScope, Public, HideBySig
+    ActiveThis(Control): PrivateScope, Public, Virtual, HideBySig, VtableLayoutMask
